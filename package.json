@@ -4,7 +4,10 @@
   "dependencies": {
     "twit": "1.1.x",
     "express": "3.1.x",
-    "redis": "0.8.x"
+    "redis": "0.8.x",
+    "cheerio": "0.1.x",
+    "request": "x.x.x",
+    "underscore":"1.5.x"
   },
   "engines": {
     "node": "0.10.x",
