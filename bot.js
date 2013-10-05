@@ -1,6 +1,33 @@
 // Our Twitter library
 var Twit = require('twit');
 
+if (process.env.REDISTOGO_URL) {
+// TODO: redistogo connection
+  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  var redis = require("redis").createClient(rtg.port, rtg.hostname);
+
+  redis.auth(rtg.auth.split(":")[1]); 
+} else {
+  var redis = require("redis").createClient();
+}
+
+redis.on("error", function (err) {
+  console.log("Error " + err);
+});
+
+var express = require("express");
+var app = express();
+app.use(express.logger());
+
+app.get('/', function(request, response) {
+  response.send('Hello World!');
+});
+
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
+
 // We need to include our configuration file
 var T = new Twit(require('./config.js'));
 
