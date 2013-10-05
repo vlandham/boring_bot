@@ -1,0 +1,13 @@
+{
+  "name": "boring_bot",
+  "version": "0.0.1",
+  "dependencies": {
+    "twit": "1.1.x",
+    "express": "3.1.x"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
+
